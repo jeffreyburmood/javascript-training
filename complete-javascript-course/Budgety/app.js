@@ -124,7 +124,11 @@ var UIController = (function() {
         inputValue: '.add__value',
         inputBtn: '.add__btn',
         incomeContainer: '.income__list',
-        expenseContainer: '.expenses__list'
+        expenseContainer: '.expenses__list',
+        budgetLable: '.budget__value',
+        incomeLable: '.budget__income--value',
+        expensesLable: '.budget__expenses--value',
+        percentageLable: '.budget__expenses--percentage'
     };
 
     return {
@@ -175,6 +179,18 @@ var UIController = (function() {
             fieldsArray[0].focus();
         },
 
+        displayBudget: function(obj) {
+            document.querySelector(DOMStrings.budgetLable).textContent = obj.budget;
+            document.querySelector(DOMStrings.incomeLable).textContent = obj.incomeTotal;
+            document.querySelector(DOMStrings.expensesLable).textContent = obj.expenseTotal;
+
+            if (obj.percentage > 0) {
+                document.querySelector(DOMStrings.percentageLable).textContent = obj.percentage + '%';
+            } else {
+                document.querySelector(DOMStrings.percentageLable).textContent = '---';
+            }
+        },
+
         getDOMStrings: function() {
             return DOMStrings;
         }
@@ -206,7 +222,8 @@ var controller = (function(budgetCtrl, UICtrl) {
     // return the budget
         var budget = budgetController.getBudget();
     // display the budget on the UI
-        console.log(budget);
+        UIController.displayBudget(budget);
+        //console.log(budget);
     };
 
     var controlAddItem = function() {
@@ -237,6 +254,13 @@ var controller = (function(budgetCtrl, UICtrl) {
     return {
         init: function() {
             console.log('Application has started...');
+            // initialize the budget values 
+            UIController.displayBudget({
+                budget: 0,
+                incomeTotal: 0,
+                expenseTotal: 0,
+                percentage: -1
+            });
             setupEventListerners();
         }
     };
