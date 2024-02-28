@@ -124,3 +124,16 @@ for (let i = 0; i < jeffrey.length; i++) {
     console.log(`array element ${i} = ${jeffrey[i]}`);
 }
 
+// while loop
+
+let i = 1;
+while (i < jeffrey.length) {
+    console.log(`array element ${i} = ${jeffrey[i]}`);
+    i++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+while (dice !== 6) {
+    console.log(`you rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+}
