@@ -85,3 +85,42 @@ console.log(friends.indexOf('sandy'))
 
 // item in array?
 console.log(friends.includes('sandy'))
+
+//
+// iterations - looping
+//
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition - ${rep}`);
+}
+
+for (let i = 0; i < jeffrey.length; i++) {
+    console.log(`array element ${i} = ${jeffrey[i]}`);
+}
+
+const types = [];
+for (let i = 0; i < jeffrey.length; i++) {
+    console.log(`array element ${i} = ${jeffrey[i]}`);
+    //types[i] = typeof(jeffrey[i]);
+    types.push(jeffrey[i]); // push element to the end of the array
+}
+
+console.log(types);
+
+const ages = [];
+for (let i = 1; i < years.length; i++) {
+    ages.push(2024 - years[i]);
+}
+
+console.log(ages);
+
+for (let i = 0; i < jeffrey.length; i++) {
+    if (typeof (jeffrey[i]) !== 'string') continue; // print out only strings or exit current iteration
+
+    console.log(`array element ${i} = ${jeffrey[i]}`);
+}
+
+for (let i = 0; i < jeffrey.length; i++) {
+    if (typeof (jeffrey[i]) === 'number') break; //break out of the loop if a number is found
+    console.log(`array element ${i} = ${jeffrey[i]}`);
+}
+
